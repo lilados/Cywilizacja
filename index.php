@@ -1,4 +1,3 @@
-<!-- ZRÓB SOBIE BAZIE O NAZWIE cywilizacja w phpmyadmin -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,14 +14,11 @@
         <div id="listaAkcji">
             <ol>
                 <li><button onclick="changeSite(0)">Resources</button></li>
-                <li><button onclick="changeSite(1)">Handel</button></li>
-                <li><button onclick="changeSite(2)">Politics</button></li>
-                <li><button onclick="changeSite(3)">Studies</button></li>
-                <li><button onclick="changeSite(4)">Technology</button></li>
-                <li><button onclick="changeSite(5)">Buildings</button></li>
-                <li><button onclick="changeSite(6)">Army</button></li>
+                <li><button onclick="changeSite(1)">Money</button></li>
+                <li><button onclick="changeSite(2)">Army</button></li>
+                <li><button onclick="changeSite(3)">Buildings</button></li>
             </ol>
-        </div>  
+        </div>
 
         <iframe id="embedded-site"></iframe>
 

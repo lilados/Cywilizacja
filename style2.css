@@ -1,0 +1,24 @@
+#con{
+    height: 96%;
+    width: 98%;
+    min-height: 900px;
+    margin: auto;
+    background-color: chartreuse;
+}
+
+#listaAkcji{
+    width: 300px;
+    min-height: 900px;
+    background-color:rgb(59, 133, 59);
+    float: left;
+}
+
+
+#embedded-site{
+    position: absolute;
+    width: 600px;
+    height: 400px;
+    background-color: green;
+    right: 1%;
+    top: 500px;
+}
