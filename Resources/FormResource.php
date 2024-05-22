@@ -1,6 +1,10 @@
+<?php
+    include_once "ChangeResources.html";
+?>
+
 <div>
     Dodaj Zasoby Swojej Cywilizacji
-    <form action="dodajZasoby.php" method="get">
+    <form action="AddResource.php" method="get">
         Rodzaj Surowca <select name="resource">
             <option value="Wood">Drewno</option>
             <option value="Stone">Głazy</option>

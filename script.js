@@ -1,9 +1,6 @@
-
 sites = [
-    "FormResource.php",
-    "FormMoney.php",
-    "FormArmy.php",
-    "FormBuild.php"
+    "Resources/FormResource.php",
+    "Politics/FormPolitics.php",
 ];
 changeSite(0);
 

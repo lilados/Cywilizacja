@@ -4,7 +4,7 @@ include_once "linkiDoAlternatyw.html";
 
 <div>
     Dodaj jednostki wojskowe dla swojej Cywilizacji
-    <form action="dodajJednostki.php" method="get">
+    <form action="AddUnit.php" method="get">
         Rodzaj jednostki <select name="unit">
             <option value="Thrall">Thrall</option>
             <option value="Archer">Archer</option>
