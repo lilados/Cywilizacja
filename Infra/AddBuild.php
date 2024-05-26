@@ -1,26 +1,28 @@
 <?php
     include_once "connect.php";
 
-
-    $building = $_GET['building'];
-    $amount = $_GET['amount'];
-
-
-    $q = "INSERT INTO buildings (id, building, amount) VALUES (NULL, '$building', '$amount')
-      ON DUPLICATE KEY UPDATE amount = amount + VALUES(amount)";
-
-    $checkQuery = "SELECT id, amount FROM buildings WHERE building = '$building'";
-
-    $result = mysqli_query($conn, $checkQuery);
-    if (mysqli_num_rows($result) > 0) {
-        $row = mysqli_fetch_assoc($result);
-        $newAmount = $row['amount'] + $amount;
-        $id = $row['id'];
-        $updateQuery = "UPDATE buildings SET amount = $newAmount WHERE id = $id";
-        mysqli_query($conn, $updateQuery);
-    } else {
-        $insertQuery = "INSERT INTO buildings (id, building, amount) VALUES (NULL, '$building', '$amount')";
-        mysqli_query($conn, $insertQuery);
-    }
-    echo "Dodano $building w ilosci $amount dla twojej cywilizacji";
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+        $id = $_POST['id'];
+        $nazwa = $_POST['nazwa'];
+        $typ = $_POST['typ'];
+        $lokalizacja = $_POST['lokalizacja'];
+        $data_rozpoczecia = $_POST['data_rozpoczecia'];
+        $data_zakonczenia = $_POST['data_zakonczenia'];
+        $status = $_POST['status'];
+        $action = $_POST['action'];
+    
+        if ($action === 'create') {
+            $stmt = $conn->prepare("INSERT INTO projekty_infrastrukturalne (nazwa, typ, lokalizacja, data_rozpoczecia, data_zakonczenia, status) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmt->bind_param("ssssss", $nazwa, $typ, $lokalizacja, $data_rozpoczecia, $data_zakonczenia, $status);
+            $stmt->execute();
+        } elseif ($action === 'update') {
+            $stmt = $conn->prepare("UPDATE projekty_infrastrukturalne SET nazwa = ?, typ = ?, lokalizacja = ?, data_rozpoczecia = ?, data_zakonczenia = ?, status = ? WHERE id = ?");
+            $stmt->bind_param("ssssssi", $nazwa, $typ, $lokalizacja, $data_rozpoczecia, $data_zakonczenia, $status, $id);
+            $stmt->execute();
+        } elseif ($action === 'delete') {
+            $stmt = $conn->prepare("DELETE FROM projekty_infrastrukturalne WHERE id = ?");
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+        }
+    }    
 ?>

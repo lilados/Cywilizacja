@@ -14,9 +14,10 @@
         <div id="listaAkcji">
             <ol>
                 <li><button onclick="changeSite(0)">Resources</button></li>
-                <li><button onclick="changeSite(1)">Money</button></li>
-                <li><button onclick="changeSite(2)">Army</button></li>
-                <li><button onclick="changeSite(3)">Buildings</button></li>
+                <li><button onclick="changeSite(1)">Politics</button></li>
+                <li><button onclick="changeSite(2)">Technology</button></li>
+                <li><button onclick="changeSite(3)">Infrastructure</button></li>
+                <li><button onclick="changeSite(4)">Army</button></li>
             </ol>
         </div>
 

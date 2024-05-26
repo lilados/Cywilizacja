@@ -15,6 +15,7 @@
 
 
 #embedded-site{
+    border: 0px;
     position: absolute;
     width: 600px;
     height: 400px;
