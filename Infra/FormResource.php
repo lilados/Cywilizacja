@@ -3,24 +3,19 @@ include_once "ChangeInfra.html";
 ?>
 
 
-<div>
-    <form action="AddResource.php" method="post">
-        <input type="hidden" name="id" value="" />
-        
-        <label for="nazwa">Nazwa zasobu:</label>
-        <input type="text" id="nazwa" name="nazwa" required /><br>
-        
-        <label for="ilosc">Ilość:</label>
-        <input type="number" id="ilosc" name="ilosc" step="0.01" required /><br>
-        
-        <label for="jednostka">Jednostka:</label>
-        <input type="text" id="jednostka" name="jednostka" required /><br>
-        
-        <label for="projekt_id">ID projektu:</label>
-        <input type="number" id="projekt_id" name="projekt_id" required /><br>
-        
-        <button type="submit" name="action" value="create">Dodaj</button>
-        <button type="submit" name="action" value="update">Edytuj</button>
-        <button type="submit" name="action" value="delete">Usuń</button>
-    </form>
-</div>
+<form action="AddResource.php" method="post">
+    <label for="nazwa">Nazwa projektu:</label>
+    <input type="text" id="nazwa" name="nazwa" required><br>
+    
+    <label for="typ">Typ infrastruktury:</label>
+    <input type="text" id="typ" name="typ" required><br>
+    
+    <label for="zasoby_potrzebne">Zasoby potrzebne:</label>
+    <textarea id="zasoby_potrzebne" name="zasoby_potrzebne" required></textarea><br>
+    
+    <label for="harmonogram">Harmonogram:</label>
+    <textarea id="harmonogram" name="harmonogram" required></textarea><br>
+    
+    <button type="submit" name="submit">Dodaj projekt infrastrukturalny</button><br>
+</form>
+

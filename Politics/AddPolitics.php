@@ -1,25 +1,15 @@
 <?php
     include_once "../connect.php";
 
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $id = $_POST['id'];
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nazwa = $_POST['nazwa'];
-        $typ = $_POST['typ'];
+        $kategoria = $_POST['kategoria'];
         $opis = $_POST['opis'];
-        $action = $_POST['action'];
-    
-        if ($action === 'create') {
-            $stmt = $conn->prepare("INSERT INTO polityki (nazwa, typ, opis) VALUES (?, ?, ?)");
-            $stmt->bind_param("sss", $nazwa, $typ, $opis);
-            $stmt->execute();
-        } elseif ($action === 'update') {
-            $stmt = $conn->prepare("UPDATE polityki SET nazwa = ?, typ = ?, opis = ? WHERE id = ?");
-            $stmt->bind_param("sssi", $nazwa, $typ, $opis, $id);
-            $stmt->execute();
-        } elseif ($action === 'delete') {
-            $stmt = $conn->prepare("DELETE FROM polityki WHERE id = ?");
-            $stmt->bind_param("i", $id);
-            $stmt->execute();
-        }
+        
+        $sql = "INSERT INTO Polityki (nazwa, kategoria, opis) VALUES (?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("sss", $nazwa, $kategoria, $opis);
+        $stmt->execute();
     }
+    
 ?>

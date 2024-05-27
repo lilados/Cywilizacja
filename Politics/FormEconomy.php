@@ -1,24 +1,17 @@
 <?php
     include_once "ChangePolitics.html";
 ?>
-<div>
 <form action="AddEconomy.php" method="post">
-    <input type="hidden" name="id" value="" />
-    <label for="nazwa">Nazwa:</label>
-    <input type="text" id="nazwa" name="nazwa" required /><br>
-    
-    <label for="typ">Typ:</label>
-    <select id="typ" name="typ">
-        <option value="ministerstwo">Ministerstwo</option>
-        <option value="agencja">Agencja</option>
+    <label for="typ_wskaznika">Typ wskaźnika:</label>
+    <select id="typ_wskaznika" name="typ_wskaznika" required>
+        <option value="ekonomiczny">Ekonomiczny</option>
+        <option value="społeczny">Społeczny</option>
+        <option value="polityczny">Polityczny</option>
+        <option value="wojskowy">Wojskowy</option>
     </select><br>
     
-    <label for="budzet">Budżet:</label> 
-    <input type="number" id="budzet" name="budzet" step="0.01" required /><br>
+    <label for="wartosc">Wartość:</label>
+    <input type="number" id="wartosc" name="wartosc" step="0.01" required><br>
     
-    <button type="submit" name="action" value="create">Utwórz</button>
-    <button type="submit" name="action" value="update">Edytuj</button>
-    <button type="submit" name="action" value="delete">Usuń</button>
+    <button type="submit" name="submit">Dodaj wskaźnik</button><br>
 </form>
-
-</div>
