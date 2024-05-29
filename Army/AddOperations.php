@@ -1,15 +1,15 @@
 <?php
-    include_once "connect.php";
+    include_once "../connect.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nazwa = $_POST['nazwa'];
         $cel = $_POST['cel'];
-        $zasoby_wymagane = $_POST['zasoby_wymagane'];
-        $harmonogram = $_POST['harmonogram'];
+        $data_rozpoczecia = $_POST['data'];
+        $opis = $_POST['opis'];
         
-        $sql = "INSERT INTO OperacjeWojskowe (nazwa, cel, zasoby_wymagane, harmonogram) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO Operacje_Wojskowe (nazwa, cel, data_rozpoczecia, opis,panstwo_id) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssss", $nazwa, $cel, $zasoby_wymagane, $harmonogram);
+        $stmt->bind_param("ssssd", $nazwa, $cel, $data_rozpoczecia, $opis,$_COOKIE["countryID"]);
         $stmt->execute();
     }
     

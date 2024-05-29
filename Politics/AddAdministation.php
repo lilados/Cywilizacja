@@ -5,7 +5,7 @@
         $ministerstwo = $_POST['ministerstwo'];
         $budzet = $_POST['budzet'];
         
-        $sql = "INSERT INTO Administracja (ministerstwo, budzet) VALUES (?, ?)";
+        $sql = "INSERT INTO administracja (nazwa, budzet) VALUES (?, ?)";
         $stmt = $conn->prepare($sql);
         $stmt->bind_param("sd", $ministerstwo, $budzet);
         $stmt->execute();

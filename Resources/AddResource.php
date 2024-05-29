@@ -6,9 +6,9 @@
         $typ = $_POST['typ'];
         $ilosc = $_POST['ilosc'];
         
-        $sql = "INSERT INTO Zasoby (nazwa, typ, ilosc) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO Zasoby (nazwa, typ, ilosc,panstwo_id) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssd", $nazwa, $typ, $ilosc);
+        $stmt->bind_param("ssdd", $nazwa, $typ, $ilosc,$_COOKIE["countryID"]);
         $stmt->execute();
     }
     

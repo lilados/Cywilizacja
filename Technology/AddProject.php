@@ -7,9 +7,9 @@
         $zasoby_potrzebne = $_POST['zasoby_potrzebne'];
         $harmonogram = $_POST['harmonogram'];
         
-        $sql = "INSERT INTO ProjektyBadawcze (nazwa, cele, zasoby_potrzebne, harmonogram) VALUES (?, ?, ?, ?)";
+        $sql = "INSERT INTO Projekty_Badawcze (nazwa, cel, zasoby_potrzebne, harmonogram,panstwo_id) VALUES (?, ?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ssss", $nazwa, $cele, $zasoby_potrzebne, $harmonogram);
+        $stmt->bind_param("ssssd", $nazwa, $cele, $zasoby_potrzebne, $harmonogram,$_COOKIE["countryID"]);
         $stmt->execute();
     }
     

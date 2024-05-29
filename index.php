@@ -19,11 +19,17 @@
                 <li><button onclick="changeSite(3)">Infrastructure</button></li>
                 <li><button onclick="changeSite(4)">Army</button></li>
             </ol>
+            <ol id="CountrySelect">
+                <li><button onclick="changeCountry(1)">Underwoodment</button></li>
+                <li><button onclick="changeCountry(2)">Wronis</button></li>
+                <li><button onclick="changeCountry(3)">Masuria</button></li>
+                <li><button onclick="changeCountry(4)">Jagorria</button></li>
+            </ol>
         </div>
-
+        
+       
         <iframe id="embedded-site"></iframe>
-
+        <script src="script.js"></script>
     </div>
-    <script src="script.js"></script>
 </body>
 </html>

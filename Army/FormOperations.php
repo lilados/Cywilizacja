@@ -9,11 +9,12 @@ include_once "ChangeArmy.html";
     <label for="cel">Cel operacji:</label>
     <textarea id="cel" name="cel" required></textarea><br>
     
-    <label for="zasoby_wymagane">Zasoby wymagane:</label>
-    <textarea id="zasoby_wymagane" name="zasoby_wymagane" required></textarea><br>
+    <label for="data">Data operacji:</label>
+    <input type="date" id="data" name="data" required><br>
+
+    <label for="opis">Opis operacji:</label>
+    <input type="text" id="opis" name="opis" required><br>
     
-    <label for="harmonogram">Harmonogram:</label>
-    <textarea id="harmonogram" name="harmonogram" required></textarea><br>
     
     <button type="submit" name="submit">Dodaj operację wojskową</button><br>
 </form>

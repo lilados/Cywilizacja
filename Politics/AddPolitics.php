@@ -6,9 +6,9 @@
         $kategoria = $_POST['kategoria'];
         $opis = $_POST['opis'];
         
-        $sql = "INSERT INTO Polityki (nazwa, kategoria, opis) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO Polityki (nazwa, typ, opis,panstwo_id) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sss", $nazwa, $kategoria, $opis);
+        $stmt->bind_param("sssd", $nazwa, $kategoria, $opis,$_COOKIE["countryID"]);
         $stmt->execute();
     }
     

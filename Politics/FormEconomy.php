@@ -13,5 +13,8 @@
     <label for="wartosc">Wartość:</label>
     <input type="number" id="wartosc" name="wartosc" step="0.01" required><br>
     
+    <label for="data">Data:</label>
+    <input type="date" id="data" name="data" required><br>
+    
     <button type="submit" name="submit">Dodaj wskaźnik</button><br>
 </form>

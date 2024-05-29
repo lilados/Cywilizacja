@@ -1,3 +1,4 @@
+
 sites = [
     "Resources/FormResource.php",
     "Politics/FormPolitics.php",
@@ -5,9 +6,12 @@ sites = [
     "Infra/FormBuild.php",
     "Army/FormUnits.php",
 ];
-changeSite(0);
 
 function changeSite(siteID) {
     var site = document.getElementById("embedded-site");
     site.setAttribute("src",sites[siteID]);
+}
+
+function changeCountry(countryID) {
+    document.cookie = `countryID=${countryID}`;
 }

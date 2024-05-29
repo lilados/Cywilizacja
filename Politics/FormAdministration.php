@@ -2,7 +2,7 @@
     include_once "ChangePolitics.html";
 ?>
 
-<form action="AddAdministration.php" method="post">
+<form action="AddAdministation.php" method="post">
     <label for="ministerstwo">Ministerstwo:</label>
     <input type="text" id="ministerstwo" name="ministerstwo" required><br>
     

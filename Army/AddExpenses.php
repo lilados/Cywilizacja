@@ -1,14 +1,14 @@
 <?php
-    include_once "connect.php";
+    include_once "../connect.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $nazwa = $_POST['nazwa'];
         $kwota = $_POST['kwota'];
-        $cel = $_POST['cel'];
+        $data = $_POST['data'];
         
-        $sql = "INSERT INTO WydatkiWojskowe (nazwa, kwota, cel) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO Wydatki_Wojskowe (rodzaj, kwota, data,panstwo_id) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sds", $nazwa, $kwota, $cel);
+        $stmt->bind_param("sdsd", $nazwa, $kwota, $data,$_COOKIE["countryID"]);
         $stmt->execute();
     }
     

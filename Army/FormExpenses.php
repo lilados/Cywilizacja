@@ -9,8 +9,9 @@ include_once "ChangeArmy.html";
     <label for="kwota">Kwota:</label>
     <input type="number" id="kwota" name="kwota" step="0.01" required><br>
     
-    <label for="cel">Cel wydatku:</label>
-    <textarea id="cel" name="cel" required></textarea><br>
+    
+    <label for="data">Data:</label>
+    <input type="date" id="data" name="data" step="0.01" required><br>
     
     <button type="submit" name="submit">Dodaj wydatek wojskowy</button><br>
 </form>
