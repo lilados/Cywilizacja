@@ -2,7 +2,7 @@
     include_once "ChangePolitics.html";
 ?>
 <form action="AddPolitics.php" method="post">
-    <label for="nazwa">Nazwa polityki:</label>
+    <label for="nazwa">Nazwa rozporządzenia/ustawy:</label>
     <input type="text" id="nazwa" name="nazwa" required><br>
     
     <label for="kategoria">Kategoria:</label>
@@ -17,5 +17,5 @@
     <label for="opis">Opis:</label>
     <textarea id="opis" name="opis" required></textarea><br>
     
-    <button type="submit" name="submit">Dodaj politykę</button><br>
+    <button type="submit" name="submit">Dodaj</button><br>
 </form>

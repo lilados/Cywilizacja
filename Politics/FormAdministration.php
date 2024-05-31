@@ -9,6 +9,6 @@
     <label for="budzet">Budżet:</label>
     <input type="number" id="budzet" name="budzet" step="0.01" required><br>
     
-    <button type="submit" name="submit">Dodaj ministerstwo</button><br>
+    <button type="submit" name="submit">Dodaj</button><br>
 </form>
 

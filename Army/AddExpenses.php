@@ -2,7 +2,7 @@
     include_once "../connect.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $nazwa = $_POST['nazwa'];
+        $nazwa = $_POST['expense'];
         $kwota = $_POST['kwota'];
         $data = $_POST['data'];
         

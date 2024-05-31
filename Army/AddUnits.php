@@ -2,14 +2,13 @@
     include_once "../connect.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $rodzaj = $_POST['rodzaj'];
+        $rodzaj = $_POST['units'];
         $liczebnosc = $_POST['liczebnosc'];
-        $wyposazenie = $_POST['wyposazenie'];
         $gotowosc = $_POST['gotowosc'];
         
-        $sql = "INSERT INTO Jednostki_Wojskowe (rodzaj, liczebnosc, wyposazenie, stan_gotowosci,panstwo_id) VALUES (?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO jednostki_wojskowe (rodzaj, liczebnosc, stan_gotowosci,panstwo_id) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sissd", $rodzaj, $liczebnosc, $wyposazenie, $gotowosc,$_COOKIE["countryID"]);
+        $stmt->bind_param("sisd", $rodzaj, $liczebnosc, $gotowosc,$_COOKIE["countryID"]);
         $stmt->execute();
     }    
 ?>

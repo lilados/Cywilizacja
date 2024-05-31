@@ -12,5 +12,5 @@
     <label for="innowacje">Innowacje technologiczne:</label>
     <textarea id="innowacje" name="innowacje" required></textarea><br>
     
-    <button type="submit" name="submit">Dodaj wyniki</button><br>
+    <button type="submit" name="submit">Dodaj</button><br>
 </form>

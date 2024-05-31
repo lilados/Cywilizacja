@@ -4,17 +4,24 @@ include_once "ChangeArmy.html";
 
 <form action="AddUnits.php" method="post">
     <label for="rodzaj">Rodzaj jednostki:</label>
-    <input type="text" id="rodzaj" name="rodzaj" required><br>
+    <select name='units'>
+        <option value='Rekrut'>Rekrut</option>
+        <option value='Wojownik'>Wojownik</option>
+        <option value='Strażnik'>Strażnik</option>
+        <option value='Kawalerzysta'>Kawalerzysta</option>
+        <option value='Łucznik'>Łucznik</option>
+        <option value='Łucznik konny'>Łucznik konny</option>
+        <option value='Kusznik'>Kusznik</option>
+</select>
     
     <label for="liczebnosc">Liczebność:</label>
     <input type="number" id="liczebnosc" name="liczebnosc" required><br>
     
-    <label for="wyposazenie">Wyposażenie:</label>
-    <textarea id="wyposazenie" name="wyposazenie" required></textarea><br>
-    
     <label for="gotowosc">Stan gotowości:</label>
-    <input type="text" id="gotowosc" name="gotowosc" required><br>
-    
-    <button type="submit" name="submit">Dodaj jednostkę wojskową</button><br>
+    <select name='gotowosc'>
+        <option value='ready'>Gotowy na front</option>
+        <option value='defend'>Obrona państwa</option>
+</select>
+    <button type="submit" name="submit">Dodaj</button><br>
 </form>
 

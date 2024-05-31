@@ -3,19 +3,20 @@
 ?>
 
 <form action="AddResource.php" method="post">
-    <label for="nazwa">Nazwa zasobu:</label>
-    <input type="text" id="nazwa" name="nazwa" required> <br>
-    
-    <label for="typ">Typ zasobu:</label>
-    <select id="typ" name="typ" required>
-        <option value="naturalne">Naturalne</option>
-        <option value="rolnicze">Rolnicze</option>
-        <option value="przemysłowe">Przemysłowe</option>
-        <option value="technologiczne">Technologiczne</option>
+
+    <label for="typ">Dodaj zasoby:</label>
+    <select name="typ">
+        <option value="zywnosc">Żywność</option>
+        <option value="kamien">Kamień</option>
+        <option value="drewno">Drewno</option>
+        <option value="zelazo">Żelazo</option>
+        <option value="wegiel">Węgiel</option>
+        <option value="zloto">Złoto</option>
+        <option value="Kasa">Kasa</option>
     </select><br>
     
     <label for="ilosc">Ilość:</label>
     <input type="number" id="ilosc" name="ilosc" step="1" required><br>
     
-    <button type="submit" name="submit">Dodaj zasób</button>
+    <button type="submit" name="submit">Dodaj</button>
 </form>

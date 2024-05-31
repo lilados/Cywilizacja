@@ -15,6 +15,6 @@
     <label for="harmonogram">Harmonogram:</label>
     <textarea id="harmonogram" name="harmonogram" required></textarea><br>
     
-    <button type="submit" name="submit">Dodaj projekt badawczy</button><br>
+    <button type="submit" name="submit">Dodaj</button><br>
 </form>
 

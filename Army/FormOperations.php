@@ -16,5 +16,5 @@ include_once "ChangeArmy.html";
     <input type="text" id="opis" name="opis" required><br>
     
     
-    <button type="submit" name="submit">Dodaj operację wojskową</button><br>
+    <button type="submit" name="submit">Dodaj</button><br>
 </form>

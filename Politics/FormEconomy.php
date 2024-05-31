@@ -16,5 +16,5 @@
     <label for="data">Data:</label>
     <input type="date" id="data" name="data" required><br>
     
-    <button type="submit" name="submit">Dodaj wskaźnik</button><br>
+    <button type="submit" name="submit">Dodaj</button><br>
 </form>
