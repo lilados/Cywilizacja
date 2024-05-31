@@ -2,14 +2,14 @@
     header('Content-Type: application/json');
     require '../connect.php';
 
-    $query = "SELECT nazwa, sum(ilosc) FROM zasoby group by nazwa";
+    $query = "SELECT typ, sum(ilosc) FROM zasoby where panstwo_id = $_COOKIE[countryID] group by typ";
     $result = $conn->query($query);
 
     $labels = [];
     $values = [];
 
     while ($row = $result->fetch_assoc()) {
-        $labels[] = $row['nazwa'];
+        $labels[] = $row['typ'];
         $values[] = $row['sum(ilosc)'];
     }
 

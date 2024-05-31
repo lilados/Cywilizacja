@@ -20,42 +20,61 @@ include_once "ChangePolitics.html";
 </head>
 <body>
     <div class="chart-container">
+        <canvas id="administracjaChart"></canvas>
         <canvas id="politykaChart"></canvas>
     </div>
 
     <script>
-        const ctx = document.getElementById('politykaChart').getContext('2d');
-        const chartData = {
-            labels: ['Ministerstwo A', 'Ministerstwo B', 'Ministerstwo C'],
-            datasets: [
-                {
-                    label: 'Budżet',
-                    data: [120000, 150000, 90000],
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255, 99, 132, 1)',
-                    borderWidth: 1,
-                },
-                {
-                    label: 'Efekt Polityki',
-                    data: [75, 60, 90],
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1,
-                }
-            ],
-        };
-
-        const politykaChart = new Chart(ctx, {
-            type: 'bar',
-            data: chartData,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
+        const ctx = document.getElementById('administracjaChart').getContext('2d');
+        const ctx2 = document.getElementById('politykaChart').getContext('2d');
+        fetch('DataAdministration.php')
+            .then(response => response.json())
+            .then(data => {
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Administracje',
+                            data: data.values,
+                            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
                     },
-                },
-            },
-        });
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+            fetch('DataEconomy.php')
+            .then(response => response.json())
+            .then(data => {
+                new Chart(ctx2, {
+                    type: 'pie',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Administracje',
+                            data: data.values,
+                            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
     </script>
 </body>
 </html>

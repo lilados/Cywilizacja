@@ -5,9 +5,9 @@
         $ministerstwo = $_POST['ministerstwo'];
         $budzet = $_POST['budzet'];
         
-        $sql = "INSERT INTO administracja (nazwa, budzet) VALUES (?, ?)";
+        $sql = "INSERT INTO administracja (nazwa, budzet, panstwo_id) VALUES (?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("sd", $ministerstwo, $budzet);
+        $stmt->bind_param("sdd", $ministerstwo, $budzet,$_COOKIE['countryID']);
         $stmt->execute();
     }    
 ?>

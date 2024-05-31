@@ -25,44 +25,27 @@ include_once "ChangeInfra.html";
     </div>
     <script>
         const ctx = document.getElementById('infrastrukturaChart').getContext('2d');
-        const chartData = {
-            labels: ['Projekt A', 'Projekt B', 'Projekt C'],
-            datasets: [
-                {
-                    label: 'Postępy',
-                    data: [60, 75, 50],
-                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
-                    borderColor: 'rgba(255, 159, 64, 1)',
-                    borderWidth: 1,
-                },
-                {
-                    label: 'Stan Techniczny',
-                    data: [85, 90, 78],
-                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
-                    borderColor: 'rgba(255, 206, 86, 1)',
-                    borderWidth: 1,
-                },
-                {
-                    label: 'Koszty',
-                    data: [200000, 150000, 300000],
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                    borderColor: 'rgba(54, 162, 235, 1)',
-                    borderWidth: 1,
-                }
-            ],
-        };
-
-        const infrastrukturaChart = new Chart(ctx, {
-            type: 'bar',
-            data: chartData,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
+        fetch('DataBuildings.php')
+            .then(response => response.json())
+            .then(data => {
+                new Chart(ctx, {
+                    type: 'pie',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Budynki',
+                            data: data.values,
+                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                            borderColor: 'rgba(153, 102, 255, 1)',
+                            borderWidth: 1
+                        }]
                     },
-                },
-            },
-        });
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            } }
+                    } }); });
     </script>
 </body>
 </html>

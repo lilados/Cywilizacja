@@ -12,7 +12,7 @@
         <option value="zelazo">Żelazo</option>
         <option value="wegiel">Węgiel</option>
         <option value="zloto">Złoto</option>
-        <option value="Kasa">Kasa</option>
+        <option value="kasa">Kasa</option>
     </select><br>
     
     <label for="ilosc">Ilość:</label>

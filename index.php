@@ -9,27 +9,24 @@
 </head>
 
 <body>
-<audio id="song" autoplay loop style="display: none;">
+    <audio id="song" autoplay loop style="display: none;">
         <source src="ambient.mp3" type="audio/mpeg" >
     </audio>
-
-    <!-- Your HTML Content Goes Here -->
-
     <script>
-        // Play audio when the page is refreshed or clicked on
-        window.addEventListener('DOMContentLoaded', () => {
-            let audio = document.getElementById("song");
-            audio.volume = 0.1; // Set the volume to 30%
-            audio.play();
-        });
-
-        // Play audio when any part of the page is clicked
         window.addEventListener('click', () => {
-            document.getElementById("song").play();
-            audio.volume = 0.1; // Set the volume to 30%
+            let audio = document.getElementById("song");
+            audio.volume = 0.1;
             audio.play();
         });
     </script>
+    <style>
+        table,tr,th,td{
+            border: 1px black solid;
+        }
+        table{
+            width: 1500px;
+        }
+    </style>
 
 <div id="wrapper">
 
@@ -69,21 +66,9 @@
   <div id="content">
   <div class="image" style="background-image: url('images/mapaD.png');"></div>
 </div>
- 
-<iframe id="embedded-site"></iframe>
-
-  <div id="footer" style='font-family: "MedievalSharp", cursive;'>
-
-<table>
-
-</table>
-
-
-</div>
-
-
-  
+        <iframe id="embedded-site"></iframe>
+        <div id="footer" style='font-family: "MedievalSharp", cursive;'>
+        </div>
     </div>
-
 </body>
 </html>

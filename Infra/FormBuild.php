@@ -10,6 +10,10 @@ include_once "ChangeInfra.html";
         <label for="nazwa">Nazwa projektu:</label>
         <input type="text" id="nazwa" name="nazwa" required /><br>
         
+        
+        <label for="ilosc">Ilosc:</label>
+        <input type="number" id="ilosc" name="ilosc" required /><br>
+
         <label for="typ">Typ:</label>
         <select id="typ" name="typ">
             <option value="droga">Droga</option>
@@ -28,10 +32,10 @@ include_once "ChangeInfra.html";
         <?php 
                 $current = $_COOKIE['countryID'];
                 include '../connect.php';
-            $query = mysqli_query($conn, "SELECT  * from projekty_infrastrukturalne where panstwo_id LIKE $current");
-            echo '<table><tr><th>Id projektu</th><th>Nazwa projektu</th><th>Rodzaj</th>';
+            $query = mysqli_query($conn, "SELECT  * from projekty_infrastrukturalne where panstwo_id = $current");
+            echo '<table><tr><th>Id projektu</th><th>Nazwa projektu</th><th>Ilość</th><th>Rodzaj</th>';
             while($row=mysqli_fetch_array($query)){
-                echo "<tr> <td>$row[0] </td><td>$row[1] </td><td>$row[2] </td></tr> ";
+                echo "<tr> <td>$row[0] </td><td>$row[1] </td><td>$row[2] </td></td><td>$row[3] </td></tr> ";
             };
             echo '</table>';
 

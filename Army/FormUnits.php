@@ -21,7 +21,7 @@ include_once "ChangeArmy.html";
     <select name='gotowosc'>
         <option value='ready'>Gotowy na front</option>
         <option value='defend'>Obrona państwa</option>
-</select>
+</select><br>
     <button type="submit" name="submit">Dodaj</button><br>
 </form>
 

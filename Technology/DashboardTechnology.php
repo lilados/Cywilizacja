@@ -22,40 +22,52 @@ include_once "ChangeTechnology.html";
 <body>
     <div class="chart-container">
         <canvas id="naukaChart"></canvas>
+        <canvas id="naukaChart"></canvas>
     </div>
     <script>
         const ctx = document.getElementById('naukaChart').getContext('2d');
-        const chartData = {
-            labels: ['Projekt A', 'Projekt B', 'Projekt C'],
-            datasets: [
-                {
-                    label: 'Postępy',
-                    data: [80, 55, 90],
-                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
-                    borderColor: 'rgba(75, 192, 192, 1)',
-                    borderWidth: 1,
-                },
-                {
-                    label: 'Publikacje',
-                    data: [15, 10, 20],
-                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                    borderColor: 'rgba(153, 102, 255, 1)',
-                    borderWidth: 1,
-                }
-            ],
-        };
-
-        const naukaChart = new Chart(ctx, {
-            type: 'bar',
-            data: chartData,
-            options: {
-                scales: {
-                    y: {
-                        beginAtZero: true,
+        const ct2 = document.getElementById('naukaChart').getContext('2d');
+        
+        
+        fetch('DataResource.php')
+            .then(response => response.json())
+            .then(data => {
+                new Chart(ctx1, {
+                    type: 'bar',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Zasoby',
+                            data: data.values,
+                            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            borderWidth: 1
+                        }]
                     },
-                },
-            },
-        });
+                    options: {
+                        scales: {
+                            y: {
+                                beginAtZero: true
+                            }
+                        }
+                    }
+                });
+            });
+
+        fetch('DataImportExport.php')
+            .then(response => response.json())
+            .then(data => {
+                new Chart(ctx2, {
+                    type: 'line',
+                    data: {
+                        labels: data.labels,
+                        datasets: [{
+                            label: 'Bilans Handlowy',
+                            data: data.values,
+                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                            borderColor: 'rgba(153, 102, 255, 1)',
+                            borderWidth: 1
+                        }]},options: {scales: {y: {beginAtZero: true}}} }); });
     </script>
 </body>
 </html>

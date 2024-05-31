@@ -5,10 +5,11 @@
         $projekt_id = $_POST['projekt_id'];
         $wyniki = $_POST['wyniki'];
         $innowacje = $_POST['innowacje'];
+        $data = $_POST['data'];
         
-        $sql = "INSERT INTO WynikiBadan (projekt_id, wyniki, innowacje) VALUES (?, ?, ?)";
+        $sql = "INSERT INTO Wyniki_Badawcze (projekt_id, data, wynik, wplyw) VALUES (?, ?, ?, ?)";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("iss", $projekt_id, $wyniki, $innowacje);
+        $stmt->bind_param("isss", $projekt_id, $data, $wyniki, $innowacje);
         $stmt->execute();
     }
     

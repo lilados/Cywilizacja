@@ -2,7 +2,7 @@
     header('Content-Type: application/json');
     require '../connect.php';
 
-    $query = "SELECT data, wartosc FROM bilans order by data";
+    $query = "SELECT data, wartosc FROM bilans where panstwo_id = ".$_COOKIE['countryID']." order by data";
     $result = $conn->query($query);
 
     $labels = [];
