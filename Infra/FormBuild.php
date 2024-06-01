@@ -33,7 +33,7 @@ include_once "ChangeInfra.html";
                 $current = $_COOKIE['countryID'];
                 include '../connect.php';
             $query = mysqli_query($conn, "SELECT  * from projekty_infrastrukturalne where panstwo_id = $current");
-            echo '<table><tr><th>Id projektu</th><th>Nazwa projektu</th><th>Ilość</th><th>Rodzaj</th>';
+            echo '<table border=1><tr><th>Id projektu</th><th>Nazwa projektu</th><th>Ilość</th><th>Rodzaj</th>';
             while($row=mysqli_fetch_array($query)){
                 echo "<tr> <td>$row[0] </td><td>$row[1] </td><td>$row[2] </td></td><td>$row[3] </td></tr> ";
             };
