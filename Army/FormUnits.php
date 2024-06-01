@@ -50,7 +50,7 @@ include_once "ChangeArmy.html";
                 WHERE panstwo_id = ? 
                 GROUP BY rodzaj, stan_gotowosci";
                 $stmt = $conn->prepare($sql);
-                $stmt->bind_param("i", $current);
+                $stmt->bind_param("i", $_COOKIE['countryID']);
                 $stmt->execute();
                 $result = $stmt->get_result();
                 
@@ -66,8 +66,6 @@ include_once "ChangeArmy.html";
                         echo "</tr>";
                     }
                     echo "</table>";
-                } else {
-                    echo "<p>Brak relacji dla tego państwa.</p>";
                 }
                 
                 $stmt->close();

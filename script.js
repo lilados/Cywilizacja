@@ -1,5 +1,6 @@
 
 window.setInterval(setFooterContent,1000)
+window.setInterval(raport,5000)
 
 sites = [
     "Resources/FormResource.php",
@@ -69,4 +70,48 @@ function setFooterContent(){
 
 }
 
+function raport() {
+    var missingResourcesPool = []
+    var raport = document.getElementById('raport')
+    fetch("Resources/AddResource.php").then(response => response.json()).then(data =>{
+        for (let i = 0; i < data.labels.length; i++) {
+            if (data.values[i] < 1000) missingResourcesPool.push(data.labels[i])
+        }
+
+        var selected = missingResourcesPool[(Math.floor(Math.random() * missingResourcesPool.length))]
+        var text = ""
+        switch (selected) {
+            case "zywnosc":
+                text = "Panie, prowiant się kończy"
+                break;
+            case "kamien":
+                text = "PANIE POTRZEBUJEMY KAMIENI!!"
+                break;
+            case "drewno":
+                text = "Nie mamy czym budować panie."
+                break;
+            case "wegiel":
+                text = "Węgiel się kończy, nie będzie czym dymić w europie!"
+                break;
+            case "zloto":
+                text = "Złoto się skończyło panie."
+                break;
+            case "kasa":
+                text = "Tracimy fundusze krajowe, nie ma piniodzy!"
+                break;
+            case "zelazo":
+                text = "Tracimy metale, nie możemy kuć i pluć!"
+                break;
+    
+            default:
+                break;
+        }
+        var obrazki = ["wardega","gola","boziol","mawel"]
+
+        raport.innerHTML = "<img src='images/"+ obrazki[(Math.floor(Math.random() * obrazki.length))]+".png' style='height:80px;float:left;'></img> " +  text
+    }) 
+}
+
 setFooterContent()
+raport()
+changeCountry(1)

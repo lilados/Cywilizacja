@@ -35,7 +35,7 @@ include_once "ChangeInfra.html";
                         datasets: [{
                             label: 'Budynki',
                             data: data.values,
-                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                            backgroundColor: ['rgba(153, 102, 255, 0.5)','rgba(120, 65, 155, 0.5)','rgba(35, 0, 154, 0.5)'],
                             borderColor: 'rgba(153, 102, 255, 1)',
                             borderWidth: 1
                         }]

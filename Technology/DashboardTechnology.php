@@ -1,12 +1,11 @@
 <?php
 include_once "ChangeTechnology.html";
 ?>
-
 <!DOCTYPE html>
 <html lang="pl">
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard Nauka i Technologia</title>
+    <title>Dashboard Wojskowy</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         .chart-container {
@@ -21,53 +20,41 @@ include_once "ChangeTechnology.html";
 </head>
 <body>
     <div class="chart-container">
-        <canvas id="naukaChart"></canvas>
-        <canvas id="naukaChart"></canvas>
+        <canvas id="naukowyChart"></canvas>
     </div>
     <script>
-        const ctx = document.getElementById('naukaChart').getContext('2d');
-        const ct2 = document.getElementById('naukaChart').getContext('2d');
-        
-        
-        fetch('DataResource.php')
-            .then(response => response.json())
-            .then(data => {
-                new Chart(ctx1, {
-                    type: 'bar',
-                    data: {
-                        labels: data.labels,
-                        datasets: [{
-                            label: 'Zasoby',
-                            data: data.values,
-                            backgroundColor: 'rgba(0, 0, 0, 0.2)',
-                            borderColor: 'rgba(75, 192, 192, 1)',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
-                        }
-                    }
-                });
-            });
+        const ctx = document.getElementById('naukowyChart').getContext('2d');
+        const chartData = {
+            labels: ['Armia', 'Szkolnictwo'],
+            datasets: [
+                {
+                    label: 'Liczba projektów',
+                    data: [300, 250],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 1,
+                },
+                {
+                    label: 'Wydatki',
+                    data: [36555, 20400],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                }
+            ],
+        };
 
-        fetch('DataImportExport.php')
-            .then(response => response.json())
-            .then(data => {
-                new Chart(ctx2, {
-                    type: 'line',
-                    data: {
-                        labels: data.labels,
-                        datasets: [{
-                            label: 'Bilans Handlowy',
-                            data: data.values,
-                            backgroundColor: 'rgba(153, 102, 255, 0.2)',
-                            borderColor: 'rgba(153, 102, 255, 1)',
-                            borderWidth: 1
-                        }]},options: {scales: {y: {beginAtZero: true}}} }); });
+        const naukowyChart = new Chart(ctx, {
+            type: 'bar',
+            data: chartData,
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+            },
+        });
     </script>
 </body>
 </html>
