@@ -106,7 +106,7 @@ function raport() {
             default:
                 break;
         }
-        var obrazki = ["wardega","gola","boziol","mawel"]
+        var obrazki = ["wardega","gola","boziol","chop","chop2"]
 
         raport.innerHTML = "<img src='images/"+ obrazki[(Math.floor(Math.random() * obrazki.length))]+".png' style='height:80px;float:left;'></img> " +  text
     }) 
